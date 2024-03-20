@@ -1,17 +1,15 @@
 
 #![cfg_attr(not(feature = "std"), no_std, no_main)]
-/// Simple DEX contract
+/// Simple AMM pool contract
 ///
 /// This contract is based on Balancer multi asset LP design and all formulas are taken from the Balancer's whitepaper (https://balancer.fi/whitepaper.pdf)
 /// It has one pool with PSP22 tokens with equal weights
 ///
 /// Swaps can be performed between all pairs in the pool whitelisted for trading
 /// Liquidity provisioning is limited to designated accounts only and works as deposits / withdrawals of arbitrary composition.
-
-
 #[ink::contract]
 mod amm_pool {
-    use ink::{contract_ref, prelude::vec, storage::Mapping};
+    use ink::{contract_ref, prelude::{vec, vec::Vec}, storage::Mapping};
     use psp22::{PSP22Error, PSP22};
 
     #[derive(Debug, PartialEq, Eq, scale::Encode, scale::Decode)]
