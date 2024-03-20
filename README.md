@@ -23,13 +23,13 @@ This contract is based on Balancer multi asset LP design and all formulas are ta
 ### Clone the Repository
 
 ```Bash
-git clone https://https://github.com/inkdevhub/amm_pool.git
+git clone https://github.com/inkdevhub/amm_pool.git
 ```
 ### Build
 
 ```Bash
 cd amm_pool
-cargo contract build -release
+cargo contract build --release
 ```
 
 ### Test
